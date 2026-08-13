@@ -1,6 +1,6 @@
 <div align="center">
   <h1>🤖 Llama AI Chatbot</h1>
-  <p>A full-stack AI chatbot powered by Ollama and built with the MERN stack.</p>
+  <p>A full-stack AI chatbot built with React, TypeScript, Node.js, Express, MongoDB, and Ollama.</p>
 </div>
 
 <div align="center">
@@ -8,7 +8,6 @@
 [![Features](https://img.shields.io/badge/Features-blue?style=for-the-badge)](#features)
 [![Installation](https://img.shields.io/badge/Installation-green?style=for-the-badge)](#installation)
 [![Usage](https://img.shields.io/badge/Usage-yellow?style=for-the-badge)](#usage)
-[![Environment Variables](https://img.shields.io/badge/Environment%20Variables-red?style=for-the-badge)](#environment-variables)
 [![Technologies Used](https://img.shields.io/badge/Technologies%20Used-gray?style=for-the-badge)](#technologies-used)
 [![Project Structure](https://img.shields.io/badge/Project%20Structure-purple?style=for-the-badge)](#project-structure)
 [![Security](https://img.shields.io/badge/Security-pink?style=for-the-badge)](#security)
@@ -19,99 +18,62 @@
 
 ## 📌 About the Project
 
-**Llama AI Chatbot** is a full-stack AI chatbot application built using the MERN stack and integrated with **Ollama** for running AI language models locally.
+Llama AI Chatbot is a full-stack AI chatbot that I built using React, TypeScript, Node.js, Express.js, MongoDB, and Ollama.
 
-The application provides an interactive chat experience where users can register, log in, and communicate with an AI assistant. User authentication and chat history are managed through a Node.js and Express backend with MongoDB.
+The main goal of this project was to build a complete chatbot application from the ground up with user authentication, persistent conversation history, and AI-powered responses.
 
-The project uses **Ollama with the Llama model** for AI-powered natural language conversations.
+Instead of using a paid OpenAI API, I integrated **Ollama with the Llama 3.2 model**, which allowed me to run the language model locally during development.
+
+The project helped me work with frontend development, backend API development, authentication, database management, and AI/LLM integration in a single application.
 
 ---
 
 ## ✨ Features
 
 - 🤖 **AI-Powered Conversations**
-  - Uses Ollama and Llama models to generate intelligent responses.
+  - Uses Ollama with the Llama 3.2 model to generate AI responses.
 
 - 🔐 **User Authentication**
-  - Secure user registration and login.
+  - User registration and login.
   - JWT-based authentication.
-  - Password hashing for secure storage.
+  - Password hashing using bcrypt.
 
-- 💬 **Interactive Chat Interface**
-  - Clean and responsive React-based chat UI.
-  - Real-time interaction with the AI assistant.
+- 💬 **Interactive Chat**
+  - Clean React-based chat interface.
+  - Users can send messages and receive responses from the AI assistant.
 
-- 📝 **Message History**
-  - Stores conversations in MongoDB.
-  - Allows users to access their previous chats.
+- 📝 **Chat History**
+  - Previous conversations are stored in MongoDB.
+  - Chat context is sent along with new messages so the AI can maintain the conversation.
 
 - 🗑️ **Chat Management**
-  - Users can manage and delete their chat messages.
+  - Users can delete their stored conversation history.
 
-- 🛡️ **Protected Routes**
-  - Authentication middleware protects private API endpoints.
+- 🛡️ **Protected API Routes**
+  - User-specific endpoints are protected using authentication middleware.
 
-- 📱 **Responsive UI**
-  - Designed to work across desktop and mobile screen sizes.
-
----
-
-## 🛠️ Technologies Used
-
-### Frontend
-
-- React
-- TypeScript
-- Vite
-- CSS
-- Axios
-
-### Backend
-
-- Node.js
-- Express.js
-- TypeScript
-- JWT
-- bcrypt
-
-### Database
-
-- MongoDB
-- Mongoose
-
-### AI
-
-- Ollama
-- Llama Large Language Model
+- 📱 **Responsive Interface**
+  - Frontend designed to provide a simple and accessible chat experience.
 
 ---
 
-## 📂 Project Structure
+## 🧠 AI Integration
+
+I integrated **Ollama** into the backend to communicate with the **Llama 3.2** language model.
+
+When a user sends a message, the request follows this flow:
 
 ```text
-Llama-AI-Chatbot/
-│
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── context/
-│   │   ├── helpers/
-│   │   ├── pages/
-│   │   └── App.tsx
-│   ├── package.json
-│   └── vite.config.ts
-│
-├── backend/
-│   ├── src/
-│   │   ├── config/
-│   │   ├── controllers/
-│   │   ├── db/
-│   │   ├── models/
-│   │   ├── routes/
-│   │   └── utils/
-│   ├── package.json
-│   └── tsconfig.json
-│
-├── .gitignore
-└── README.md
+User
+  ↓
+React Frontend
+  ↓
+Express / Node.js Backend
+  ↓
+Ollama API
+  ↓
+Llama 3.2
+  ↓
+AI Response
+  ↓
+MongoDB

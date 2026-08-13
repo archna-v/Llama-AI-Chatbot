@@ -36,11 +36,27 @@ export const generateChatCompletion = async (
     });
 
     // Send conversation to Ollama
-    const response = await axios.post("http://localhost:11434/api/chat", {
-      model: "llama3.2",
-      messages: chats,
-      stream: false,
-    });
+    const ollamaUrl =
+  process.env.OLLAMA_BASE_URL || "http://localhost:11434";
+
+const response = await axios.post(
+  `${ollamaUrl}/api/chat`,
+  {
+    model: "llama3.2",
+    messages: chats,
+    stream: false,
+  },
+  {
+    headers: process.env.OLLAMA_API_KEY
+      ? {
+          Authorization: `Bearer ${process.env.OLLAMA_API_KEY}`,
+          "Content-Type": "application/json",
+        }
+      : {
+          "Content-Type": "application/json",
+        },
+  }
+);
 
     // Get AI response
     const aiMessage = response.data.message;
