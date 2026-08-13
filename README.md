@@ -1,5 +1,6 @@
 <div align="center">
-  <h1>🤖 MERN-CHATBOT WITH OPENAI API</h1>
+  <h1>🤖 Llama AI Chatbot</h1>
+  <p>A full-stack AI chatbot powered by Ollama and built with the MERN stack.</p>
 </div>
 
 <div align="center">
@@ -14,91 +15,103 @@
 
 </div>
 
+---
 
-This project is a ChatBot application built using the MERN stack (MongoDB, Express.js, React, Node.js) and integrated with the OpenAI API for natural language processing.
+## 📌 About the Project
 
-## Features
+**Llama AI Chatbot** is a full-stack AI chatbot application built using the MERN stack and integrated with **Ollama** for running AI language models locally.
 
-- **Natural Language Processing:** Utilizes the OpenAI API to understand and respond to user input.
-- **User Authentication:** Secure user login and registration using JWT tokens and encrypted passwords.
-- **Message History:** Stores user messages in a database, allowing for message retrieval and deletion.
-- **Middleware Chains:** Protects routes and handles errors effectively.
-- **Responsive UI:** A clean and intuitive user interface built with React.
+The application provides an interactive chat experience where users can register, log in, and communicate with an AI assistant. User authentication and chat history are managed through a Node.js and Express backend with MongoDB.
 
-## Installation
+The project uses **Ollama with the Llama model** for AI-powered natural language conversations.
 
-1. **Clone the repository:**
-    ```bash
-    git clone https://github.com/your-username/MERN-ChatBot.git
-    cd MERN-ChatBot
-    ```
+---
 
-2. **Install dependencies for both the frontend and backend:**
-    ```bash
-    # For the backend
-    cd backend
-    npm install
+## ✨ Features
 
-    # For the frontend
-    cd ../frontend
-    npm install
-    ```
+- 🤖 **AI-Powered Conversations**
+  - Uses Ollama and Llama models to generate intelligent responses.
 
-3. **Set up the environment variables** (see the [Environment Variables](#environment-variables) section below).
+- 🔐 **User Authentication**
+  - Secure user registration and login.
+  - JWT-based authentication.
+  - Password hashing for secure storage.
 
-4. **Run the application:**
-    ```bash
-    npm run dev
-    ```
+- 💬 **Interactive Chat Interface**
+  - Clean and responsive React-based chat UI.
+  - Real-time interaction with the AI assistant.
 
-5. **Open your browser:**
-    - Visit `http://localhost:3000` to access the ChatBot application.
+- 📝 **Message History**
+  - Stores conversations in MongoDB.
+  - Allows users to access their previous chats.
 
-## Usage
+- 🗑️ **Chat Management**
+  - Users can manage and delete their chat messages.
 
-1. **Register or log in** to start using the ChatBot.
-2. **Interact** with the bot by typing messages into the chat interface.
-3. **View your chat history** or delete messages as needed.
+- 🛡️ **Protected Routes**
+  - Authentication middleware protects private API endpoints.
 
-## Environment Variables
+- 📱 **Responsive UI**
+  - Designed to work across desktop and mobile screen sizes.
 
-Create a `.env` file in the `backend` directory with the following environment variables:
+---
 
-```plaintext
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-OPENAI_API_KEY=your_openai_api_key
-```
+## 🛠️ Technologies Used
 
-## Technologies Used
+### Frontend
 
-- **MongoDB:** Database for storing user messages and authentication data.
-- **Express.js:** Backend framework to handle API requests and middleware.
-- **React:** Frontend library for building the user interface.
-- **Node.js:** JavaScript runtime environment for running the server-side code.
-- **OpenAI API:** Provides natural language processing capabilities.
+- React
+- TypeScript
+- Vite
+- CSS
+- Axios
 
-## Project Structure
+### Backend
 
-```plaintext
-MERN-ChatBot/
+- Node.js
+- Express.js
+- TypeScript
+- JWT
+- bcrypt
+
+### Database
+
+- MongoDB
+- Mongoose
+
+### AI
+
+- Ollama
+- Llama Large Language Model
+
+---
+
+## 📂 Project Structure
+
+```text
+Llama-AI-Chatbot/
 │
-├── frontend/            # React frontend code
-│   ├── public/          # Static files
-│   └── src/             # React components, hooks, and pages
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── helpers/
+│   │   ├── pages/
+│   │   └── App.tsx
+│   ├── package.json
+│   └── vite.config.ts
 │
-├── backend/             # Node.js backend code
-│   ├── config/          # Configuration files (e.g., database, JWT)
-│   ├── controllers/     # Route controllers
-│   ├── models/          # Mongoose models
-│   ├── routes/          # Express routes
-│   ├── middleware/      # Middleware functions
-│   └── utils/           # Utility functions
+├── backend/
+│   ├── src/
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── db/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   └── utils/
+│   ├── package.json
+│   └── tsconfig.json
 │
-└── README.md            # This file
-```
-## Security
-
-- **JWT Tokens:** Secure authentication with JSON Web Tokens.
-- **Password Encryption:** User passwords are securely hashed before storing them in the database.
-- **HTTP-Only Cookies:** Tokens are stored in HTTP-only cookies to prevent XSS attacks.
+├── .gitignore
+└── README.md
